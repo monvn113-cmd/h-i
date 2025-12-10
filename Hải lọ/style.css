@@ -1,0 +1,90 @@
+body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #c9ddf1;
+  color: #a3cffc;
+}
+
+header {
+  background-color: #c50606;
+  color: white;
+  padding: 40px 0;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+header h1 {
+  margin-bottom: 5px;
+}
+
+/* --- Lưới Ảnh (Gallery Grid) --- */
+.gallery-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.photo-grid {
+  display: grid;
+  /* Tạo 3 cột bằng nhau */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 15px; /* Khoảng cách giữa các ảnh */
+}
+
+.photo-item {
+  position: relative; /* Quan trọng cho overlay */
+  overflow: hidden; /* Cắt bỏ phần ảnh tràn ra ngoài */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.gallery-image {
+  width: 100%;
+  height: 300px; /* Chiều cao cố định cho tất cả ảnh */
+  object-fit: cover; /* Đảm bảo ảnh lấp đầy khung mà không bị méo */
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.photo-item:hover .gallery-image {
+  transform: scale(1.05); /* Phóng to ảnh khi di chuột */
+}
+
+/* --- Hiệu ứng Overlay (Che phủ) --- */
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0; /* Ẩn overlay ban đầu */
+  transition: opacity 0.3s ease;
+  background-color: rgba(0, 0, 0, 0.5); /* Lớp phủ đen mờ */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.photo-item:hover .overlay {
+  opacity: 1; /* Hiển thị overlay khi di chuột */
+}
+
+.overlay span {
+  color: white;
+  font-size: 1.5em;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+footer {
+  text-align: center;
+  padding: 15px;
+  background-color: #343a40;
+  color: #adb5bd;
+  margin-top: 40px;
+}
